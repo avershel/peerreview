@@ -14,6 +14,13 @@
 		D90DDA9A20B21FFF0085DBFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D90DDA9820B21FFF0085DBFC /* LaunchScreen.storyboard */; };
 		D90DDAA520B21FFF0085DBFC /* Peer_ReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DDAA420B21FFF0085DBFC /* Peer_ReviewTests.swift */; };
 		D90DDAB020B21FFF0085DBFC /* Peer_ReviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DDAAF20B21FFF0085DBFC /* Peer_ReviewUITests.swift */; };
+		D90DDABE20B226CA0085DBFC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DDABD20B226CA0085DBFC /* ProfileViewController.swift */; };
+		D90DDAC220B22A910085DBFC /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = D90DDAC120B22A910085DBFC /* appstore.png */; };
+		D90DDAC620B2326C0085DBFC /* 3-5stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D90DDAC520B2326C0085DBFC /* 3-5stars.png */; };
+		D90DDAC820B2386F0085DBFC /* noicon.png in Resources */ = {isa = PBXBuildFile; fileRef = D90DDAC720B2386F0085DBFC /* noicon.png */; };
+		D90DDACA20B23BE70085DBFC /* MyReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DDAC920B23BE70085DBFC /* MyReviewsViewController.swift */; };
+		D90DDACC20B23FF10085DBFC /* ReviewsOfMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DDACB20B23FF10085DBFC /* ReviewsOfMeViewController.swift */; };
+		D96F22FF2108B60F002CC350 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F22FE2108B60F002CC350 /* AddReviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,13 @@
 		D90DDAAB20B21FFF0085DBFC /* Peer ReviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Peer ReviewUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D90DDAAF20B21FFF0085DBFC /* Peer_ReviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peer_ReviewUITests.swift; sourceTree = "<group>"; };
 		D90DDAB120B21FFF0085DBFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D90DDABD20B226CA0085DBFC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D90DDAC120B22A910085DBFC /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appstore.png; path = ../../../Desktop/appicons/appstore.png; sourceTree = "<group>"; };
+		D90DDAC520B2326C0085DBFC /* 3-5stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "3-5stars.png"; path = "../../../Desktop/3-5stars.png"; sourceTree = "<group>"; };
+		D90DDAC720B2386F0085DBFC /* noicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noicon.png; path = ../../../Desktop/noicon.png; sourceTree = "<group>"; };
+		D90DDAC920B23BE70085DBFC /* MyReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewsViewController.swift; sourceTree = "<group>"; };
+		D90DDACB20B23FF10085DBFC /* ReviewsOfMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsOfMeViewController.swift; sourceTree = "<group>"; };
+		D96F22FE2108B60F002CC350 /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +111,19 @@
 		D90DDA8E20B21FFC0085DBFC /* Peer Review */ = {
 			isa = PBXGroup;
 			children = (
+				D90DDAC720B2386F0085DBFC /* noicon.png */,
+				D90DDAC520B2326C0085DBFC /* 3-5stars.png */,
+				D90DDAC120B22A910085DBFC /* appstore.png */,
 				D90DDA8F20B21FFC0085DBFC /* AppDelegate.swift */,
 				D90DDA9120B21FFC0085DBFC /* ViewController.swift */,
+				D90DDABD20B226CA0085DBFC /* ProfileViewController.swift */,
 				D90DDA9320B21FFC0085DBFC /* Main.storyboard */,
 				D90DDA9620B21FFF0085DBFC /* Assets.xcassets */,
 				D90DDA9820B21FFF0085DBFC /* LaunchScreen.storyboard */,
 				D90DDA9B20B21FFF0085DBFC /* Info.plist */,
+				D90DDAC920B23BE70085DBFC /* MyReviewsViewController.swift */,
+				D90DDACB20B23FF10085DBFC /* ReviewsOfMeViewController.swift */,
+				D96F22FE2108B60F002CC350 /* AddReviewViewController.swift */,
 			);
 			path = "Peer Review";
 			sourceTree = "<group>";
@@ -230,6 +251,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D90DDA9A20B21FFF0085DBFC /* LaunchScreen.storyboard in Resources */,
+				D90DDAC820B2386F0085DBFC /* noicon.png in Resources */,
+				D90DDAC620B2326C0085DBFC /* 3-5stars.png in Resources */,
+				D90DDAC220B22A910085DBFC /* appstore.png in Resources */,
 				D90DDA9720B21FFF0085DBFC /* Assets.xcassets in Resources */,
 				D90DDA9520B21FFC0085DBFC /* Main.storyboard in Resources */,
 			);
@@ -256,8 +280,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96F22FF2108B60F002CC350 /* AddReviewViewController.swift in Sources */,
+				D90DDABE20B226CA0085DBFC /* ProfileViewController.swift in Sources */,
 				D90DDA9220B21FFC0085DBFC /* ViewController.swift in Sources */,
+				D90DDACA20B23BE70085DBFC /* MyReviewsViewController.swift in Sources */,
 				D90DDA9020B21FFC0085DBFC /* AppDelegate.swift in Sources */,
+				D90DDACC20B23FF10085DBFC /* ReviewsOfMeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
