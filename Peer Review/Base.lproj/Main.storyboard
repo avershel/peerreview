@@ -95,11 +95,12 @@
                     </view>
                     <connections>
                         <segue destination="swV-oZ-yA1" kind="show" identifier="editProfileToProfile" id="odH-nw-dEz"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="editProfileToPhone" id="UrE-cd-zDj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dDr-nf-KmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912" y="-880"/>
+            <point key="canvasLocation" x="898" y="-795"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="qDa-OY-8GH">
@@ -123,7 +124,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ftk-CV-LmX"/>
+        <segue reference="odH-nw-dEz"/>
         <segue reference="2EZ-ij-nR1"/>
         <segue reference="H5l-dh-901"/>
     </inferredMetricsTieBreakers>

@@ -20,10 +20,47 @@ class EditProfileViewController: UIViewController {
         let screenSize: CGRect = UIScreen.main.bounds
         
         
+        let defaults = UserDefaults.standard
+        let token = defaults.string(forKey: "MyKey")
+        var name = ""
+        var about = ""
+        let myURLString = "http://prettygoodsports.com/write/api.php?phone=\(token! ?? "0")"
+        guard let myURL = URL(string: myURLString) else {
+            print("Error: \(myURLString) doesn't seem to be a valid URL")
+            return
+        }
+        do {
+            let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
+            print("HTML : \(myHTMLString)")
+            if myHTMLString.range(of:"Phone") != nil {
+                
+                var fullNameArr = myHTMLString.components(separatedBy:"}")
+                var fullNameArr2 = fullNameArr[0].components(separatedBy:"{")
+                let newString = fullNameArr2[1].replacingOccurrences(of: "\",\"", with: "###", options: .literal, range: nil)
+                
+                //"ID":"3###Phone":"2404058682###Name":"Ave###About":"235"
+                var fullNameArr3 = newString.components(separatedBy:"###")
+                
+                name = fullNameArr3[2].components(separatedBy:"\":\"")[1]
+                about = fullNameArr3[3].components(separatedBy:"\":\"")[1]
+                about = about.substring(to: about.index(before: about.endIndex))
+                
+                
+            }
+        } catch let error {
+            print("Error: \(error)")
+        }
+        
         let myView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
         
         let myLabel = UILabel(frame: CGRect(x: 0, y: screenSize.height * 0.1, width: screenSize.width, height: screenSize.height * 0.1))
-        myLabel.text = "Edit Profile"
+        if(name != ""){
+            myLabel.text = "Edit Profile"
+
+        }else{
+            myLabel.text = "Create Profile"
+
+        }
         myLabel.lineBreakMode = .byWordWrapping
         myLabel.numberOfLines = 0
         myLabel.textAlignment = .center
@@ -43,10 +80,17 @@ class EditProfileViewController: UIViewController {
         //        myLabel.adjustsFontSizeToFitWidth = true
         //        myLabel.minimumScaleFactor = 0.2
         myView.addSubview(mySmallerLabel)
+
         
         
         let myTextField = UITextField(frame: CGRect(x: 25, y: mySmallerLabel.frame.maxY + 10, width: screenSize.width - 50, height: screenSize.height * 0.05))
-        myTextField.placeholder = "John Johnson"
+        if(name != ""){
+            myTextField.text = name
+
+        }else{
+            myTextField.placeholder = "John Johnson"
+
+        }
         myTextField.font = UIFont.systemFont(ofSize: 15)
         myTextField.borderStyle = UITextBorderStyle.roundedRect
         myTextField.autocorrectionType = UITextAutocorrectionType.no
@@ -70,6 +114,10 @@ class EditProfileViewController: UIViewController {
         myView.addSubview(mySmallerLabel2)
         
         let myTextField2 = UITextView(frame: CGRect(x: 25, y: mySmallerLabel2.frame.maxY + 10, width: screenSize.width - 50, height: screenSize.height * 0.2))
+        if(about != ""){
+            myTextField2.text = about
+
+        }
         //myTextField2.text = "(123)-456-7890"
         myTextField2.font = UIFont.systemFont(ofSize: 15)
         myTextField2.autocorrectionType = UITextAutocorrectionType.no
@@ -91,7 +139,13 @@ class EditProfileViewController: UIViewController {
         
         let myButton = UIButton(frame: CGRect(x: screenSize.width / 4, y: myTextField2.frame.maxY + 40, width: screenSize.width / 4, height: screenSize.height * 0.05))
         myButton.setTitle("Cancel", for: .normal)
-        myButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
+        if(name != ""){
+            myButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
+
+        }else{
+            myButton.addTarget(self, action: #selector(cancelAction2), for: .touchUpInside)
+
+        }
         myButton.setTitleColor(UIColor.blue, for: .normal)
         
         myView.addSubview(myButton)
@@ -103,6 +157,14 @@ class EditProfileViewController: UIViewController {
         myButton2.setTitleColor(UIColor.blue, for: .normal)
         
         myView.addSubview(myButton2)
+        
+        let myButton3 = UIButton(frame: CGRect(x: (screenSize.width / 2) - ((screenSize.width / 2) / 2), y: myButton2.frame.maxY + 20, width: screenSize.width / 2, height: screenSize.height * 0.05))
+        myButton3.setTitle("Change Phone Number", for: .normal)
+        myButton3.addTarget(self, action: #selector(cancelAction2), for: .touchUpInside)
+        myButton3.setTitleColor(UIColor.blue, for: .normal)
+        myButton3.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+
+        myView.addSubview(myButton3)
         
         
         self.view.addSubview(myView)
@@ -143,6 +205,9 @@ class EditProfileViewController: UIViewController {
     
     @objc func cancelAction(sender: UIButton!) {
         performSegue(withIdentifier: "editProfileToProfile", sender: nil)
+    }
+    @objc func cancelAction2(sender: UIButton!) {
+        performSegue(withIdentifier: "editProfileToPhone", sender: nil)
     }
     
     
