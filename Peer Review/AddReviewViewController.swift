@@ -13,6 +13,7 @@ class AddReviewViewController: UIViewController {
     var textfield: UITextField?
     var textfield2: UITextField?
     var textfield3: UITextField?
+    var slider: UISlider?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -107,8 +108,17 @@ class AddReviewViewController: UIViewController {
         myTextField3.delegate = self
         self.textfield3 = myTextField3
 
-        myView.addSubview(myTextField3)
+      //  myView.addSubview(myTextField3)
         
+        
+        let mySlider = UISlider(frame: CGRect(x: 25, y: mySmallerLabel3.frame.maxY + 10, width: screenSize.width - 50, height: screenSize.height * 0.05))
+        mySlider.minimumValue = 0
+        mySlider.maximumValue = 5
+        mySlider.isContinuous = true
+        mySlider.tintColor = UIColor.green
+        self.slider = mySlider
+        myView.addSubview(mySlider)
+
         
         
         let myButton = UIButton(frame: CGRect(x: screenSize.width / 4, y: myTextField3.frame.maxY + 40, width: screenSize.width / 4, height: screenSize.height * 0.05))
@@ -141,7 +151,7 @@ class AddReviewViewController: UIViewController {
         print(self.textfield?.text)
         var name = self.textfield?.text!
         var phone = self.textfield2?.text!
-        var stars = self.textfield3?.text!
+        var stars = self.slider?.value
 
         let url = URL(string: "http://www.prettygoodsports.com/write/peerreview.php?name=\(name!)&phone=\(phone!)&myphone=2404058682&stars=\(stars!)")
         
