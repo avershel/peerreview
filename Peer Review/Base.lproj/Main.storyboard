@@ -22,6 +22,7 @@
                     </view>
                     <connections>
                         <segue destination="swV-oZ-yA1" kind="show" identifier="phoneToProfile" id="Ftk-CV-LmX"/>
+                        <segue destination="7QY-hS-f6M" kind="show" identifier="phoneToEditProfile" id="2EZ-ij-nR1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -122,7 +123,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="odH-nw-dEz"/>
+        <segue reference="Ftk-CV-LmX"/>
+        <segue reference="2EZ-ij-nR1"/>
         <segue reference="H5l-dh-901"/>
     </inferredMetricsTieBreakers>
 </document>

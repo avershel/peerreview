@@ -121,13 +121,19 @@ class EditProfileViewController: UIViewController {
         var about = self.textfield2?.text!
         let defaults = UserDefaults.standard
         let token = defaults.string(forKey: "MyKey")
-        let url = URL(string: "http://www.prettygoodsports.com/write/peerreviewProfile.php?name=\(name!)&about=\(about!)&phone=\(token ?? "0")")
         
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
+        if let encoded = "http://www.prettygoodsports.com/write/peerreviewProfile.php?name=\(name!)&about=\(about!)&phone=\(token ?? "0")".addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
+            let myURL = URL(string: encoded) {
+            print(myURL)
+            let task = URLSession.shared.dataTask(with: myURL) {(data, response, error) in
+                print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
+            }
+            
+            task.resume()
         }
         
-        task.resume()
+
+
         
         
         

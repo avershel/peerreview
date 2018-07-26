@@ -8,11 +8,8 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>prettygoodsports.com</key>
-			<dict>
-				<key>Allow Arbitrary Loads</key>
-				<true/>
-			</dict>
+			<key>www.prettygoodsports.com</key>
+			<string></string>
 		</dict>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>

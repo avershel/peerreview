@@ -30,10 +30,42 @@ class ProfileViewController: UIViewController {
         let myImageView = UIImageView(frame: CGRect(x: 15, y: screenSize.height * 0.1, width: screenSize.width * 0.25 - 15, height: screenSize.height * 0.1))
         myImageView.image = UIImage(named: "noicon.png")
         myView.addSubview(myImageView)
+        let defaults = UserDefaults.standard
+        let token = defaults.string(forKey: "MyKey")
+        var name = ""
+        var about = ""
+        let myURLString = "http://prettygoodsports.com/write/api.php?phone=\(token! ?? "0")"
+        guard let myURL = URL(string: myURLString) else {
+            print("Error: \(myURLString) doesn't seem to be a valid URL")
+            return
+        }
+        do {
+            let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
+            print("HTML : \(myHTMLString)")
+            if myHTMLString.range(of:"Phone") != nil {
+                
+                var fullNameArr = myHTMLString.components(separatedBy:"}")
+                var fullNameArr2 = fullNameArr[0].components(separatedBy:"{")
+                let newString = fullNameArr2[1].replacingOccurrences(of: "\",\"", with: "###", options: .literal, range: nil)
+                
+                //"ID":"3###Phone":"2404058682###Name":"Ave###About":"235"
+                var fullNameArr3 = newString.components(separatedBy:"###")
+                
+                name = fullNameArr3[2].components(separatedBy:"\":\"")[1]
+                about = fullNameArr3[3].components(separatedBy:"\":\"")[1]
+                about = about.substring(to: about.index(before: about.endIndex))
+
+                
+            }
+        } catch let error {
+            print("Error: \(error)")
+        }
+        
+        
 
         
         let myLabel = UILabel(frame: CGRect(x: screenSize.width * 0.25, y: screenSize.height * 0.1, width: screenSize.width * 0.75, height: screenSize.height * 0.1))
-        myLabel.text = "Austin Vershel"
+        myLabel.text = name
         myLabel.lineBreakMode = .byWordWrapping
         myLabel.numberOfLines = 0
         myLabel.textAlignment = .center
@@ -43,7 +75,7 @@ class ProfileViewController: UIViewController {
         myView.addSubview(myLabel)
         
         let myTextView = UILabel(frame: CGRect(x: 15, y: myLabel.frame.maxY + screenSize.height * 0.025, width: screenSize.width  - 30, height: screenSize.height * 0.2))
-        myTextView.text = "Austin Vershel is a graduate from James Madison University with a degree in Computer Science. He has a strong passion for creating software including web and mobile applications."
+        myTextView.text = about
         myTextView.lineBreakMode = .byWordWrapping
         myTextView.numberOfLines = 0
         myView.addSubview(myTextView)

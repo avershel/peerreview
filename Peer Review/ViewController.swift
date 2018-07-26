@@ -77,7 +77,30 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.set(self.textfield?.text!, forKey: "MyKey")
         
-        performSegue(withIdentifier: "phoneToProfile", sender: nil)
+        let myURLString = "http://prettygoodsports.com/write/api.php?phone=\(self.textfield?.text! ?? "0")"
+        guard let myURL = URL(string: myURLString) else {
+            print("Error: \(myURLString) doesn't seem to be a valid URL")
+            return
+        }
+        
+        do {
+            let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
+            print("HTML : \(myHTMLString)")
+            if myHTMLString.range(of:"Phone") != nil {
+                performSegue(withIdentifier: "phoneToProfile", sender: nil)
+
+               
+
+
+            }
+        } catch let error {
+            print("Error: \(error)")
+        }
+        
+        
+
+        
+        performSegue(withIdentifier: "phoneToEditProfile", sender: nil)
     }
 
 
