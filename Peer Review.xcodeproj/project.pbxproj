@@ -21,6 +21,8 @@
 		D90DDACA20B23BE70085DBFC /* MyReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DDAC920B23BE70085DBFC /* MyReviewsViewController.swift */; };
 		D90DDACC20B23FF10085DBFC /* ReviewsOfMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90DDACB20B23FF10085DBFC /* ReviewsOfMeViewController.swift */; };
 		D96F22FF2108B60F002CC350 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F22FE2108B60F002CC350 /* AddReviewViewController.swift */; };
+		D96F2303210A10C9002CC350 /* settings-512.png in Resources */ = {isa = PBXBuildFile; fileRef = D96F2302210A10C9002CC350 /* settings-512.png */; };
+		D96F2305210A11B0002CC350 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F2304210A11B0002CC350 /* EditProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		D90DDAC920B23BE70085DBFC /* MyReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewsViewController.swift; sourceTree = "<group>"; };
 		D90DDACB20B23FF10085DBFC /* ReviewsOfMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsOfMeViewController.swift; sourceTree = "<group>"; };
 		D96F22FE2108B60F002CC350 /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
+		D96F2302210A10C9002CC350 /* settings-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-512.png"; path = "../../../Desktop/settings-512.png"; sourceTree = "<group>"; };
+		D96F2304210A11B0002CC350 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		D90DDA8E20B21FFC0085DBFC /* Peer Review */ = {
 			isa = PBXGroup;
 			children = (
+				D96F2302210A10C9002CC350 /* settings-512.png */,
 				D90DDAC720B2386F0085DBFC /* noicon.png */,
 				D90DDAC520B2326C0085DBFC /* 3-5stars.png */,
 				D90DDAC120B22A910085DBFC /* appstore.png */,
@@ -124,6 +129,7 @@
 				D90DDAC920B23BE70085DBFC /* MyReviewsViewController.swift */,
 				D90DDACB20B23FF10085DBFC /* ReviewsOfMeViewController.swift */,
 				D96F22FE2108B60F002CC350 /* AddReviewViewController.swift */,
+				D96F2304210A11B0002CC350 /* EditProfileViewController.swift */,
 			);
 			path = "Peer Review";
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 				D90DDAC620B2326C0085DBFC /* 3-5stars.png in Resources */,
 				D90DDAC220B22A910085DBFC /* appstore.png in Resources */,
 				D90DDA9720B21FFF0085DBFC /* Assets.xcassets in Resources */,
+				D96F2303210A10C9002CC350 /* settings-512.png in Resources */,
 				D90DDA9520B21FFC0085DBFC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +293,7 @@
 				D90DDACA20B23BE70085DBFC /* MyReviewsViewController.swift in Sources */,
 				D90DDA9020B21FFC0085DBFC /* AppDelegate.swift in Sources */,
 				D90DDACC20B23FF10085DBFC /* ReviewsOfMeViewController.swift in Sources */,
+				D96F2305210A11B0002CC350 /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

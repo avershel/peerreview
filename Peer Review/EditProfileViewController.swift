@@ -9,9 +9,9 @@
 import UIKit
 
 
-class AddReviewViewController: UIViewController {
+class EditProfileViewController: UIViewController {
     var textfield: UITextField?
-    var textfield2: UITextField?
+    var textfield2: UITextView?
     var textfield3: UITextField?
     var slider: UISlider?
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class AddReviewViewController: UIViewController {
         let myView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
         
         let myLabel = UILabel(frame: CGRect(x: 0, y: screenSize.height * 0.1, width: screenSize.width, height: screenSize.height * 0.1))
-        myLabel.text = "Add New Review"
+        myLabel.text = "Edit Profile"
         myLabel.lineBreakMode = .byWordWrapping
         myLabel.numberOfLines = 0
         myLabel.textAlignment = .center
@@ -34,7 +34,7 @@ class AddReviewViewController: UIViewController {
         
         
         let mySmallerLabel = UILabel(frame: CGRect(x: 20, y: myLabel.frame.maxY + 10, width: screenSize.width - 40, height: screenSize.height * 0.1))
-        mySmallerLabel.text = "What is their name?"
+        mySmallerLabel.text = "What is your name?"
         mySmallerLabel.lineBreakMode = .byWordWrapping
         mySmallerLabel.numberOfLines = 0
         mySmallerLabel.textAlignment = .center
@@ -59,7 +59,7 @@ class AddReviewViewController: UIViewController {
         myView.addSubview(myTextField)
         
         let mySmallerLabel2 = UILabel(frame: CGRect(x: 20, y: myTextField.frame.maxY + 10, width: screenSize.width - 40, height: screenSize.height * 0.1))
-        mySmallerLabel2.text = "What is their phone number?"
+        mySmallerLabel2.text = "Tell us about yourself!"
         mySmallerLabel2.lineBreakMode = .byWordWrapping
         mySmallerLabel2.numberOfLines = 0
         mySmallerLabel2.textAlignment = .center
@@ -69,71 +69,39 @@ class AddReviewViewController: UIViewController {
         //        myLabel.minimumScaleFactor = 0.2
         myView.addSubview(mySmallerLabel2)
         
-        let myTextField2 = UITextField(frame: CGRect(x: 25, y: mySmallerLabel2.frame.maxY + 10, width: screenSize.width - 50, height: screenSize.height * 0.05))
-        myTextField2.placeholder = "(123)-456-7890"
+        let myTextField2 = UITextView(frame: CGRect(x: 25, y: mySmallerLabel2.frame.maxY + 10, width: screenSize.width - 50, height: screenSize.height * 0.2))
+        //myTextField2.text = "(123)-456-7890"
         myTextField2.font = UIFont.systemFont(ofSize: 15)
-        myTextField2.borderStyle = UITextBorderStyle.roundedRect
         myTextField2.autocorrectionType = UITextAutocorrectionType.no
         myTextField2.keyboardType = UIKeyboardType.default
         myTextField2.returnKeyType = UIReturnKeyType.done
-        myTextField2.clearButtonMode = UITextFieldViewMode.whileEditing;
-        myTextField2.contentVerticalAlignment = UIControlContentVerticalAlignment.center
-        myTextField2.delegate = self
+        myTextField2.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
+        myTextField2.layer.borderWidth = 1.0;
+        myTextField2.layer.cornerRadius = 5.0;
         self.textfield2 = myTextField2
-
+        
         myView.addSubview(myTextField2)
         
-        
-        let mySmallerLabel3 = UILabel(frame: CGRect(x: 20, y: myTextField2.frame.maxY + 10, width: screenSize.width - 40, height: screenSize.height * 0.1))
-        mySmallerLabel3.text = "How was your interaction with them?"
-        mySmallerLabel3.lineBreakMode = .byWordWrapping
-        mySmallerLabel3.numberOfLines = 0
-        mySmallerLabel3.textAlignment = .center
-        mySmallerLabel3.font = mySmallerLabel3.font.withSize(15)
-        
-        //        myLabel.adjustsFontSizeToFitWidth = true
-        //        myLabel.minimumScaleFactor = 0.2
-        myView.addSubview(mySmallerLabel3)
-        
-        
-        let myTextField3 = UITextField(frame: CGRect(x: 25, y: mySmallerLabel3.frame.maxY + 10, width: screenSize.width - 50, height: screenSize.height * 0.05))
-        myTextField3.placeholder = "1-5 stars"
-        myTextField3.font = UIFont.systemFont(ofSize: 15)
-        myTextField3.borderStyle = UITextBorderStyle.roundedRect
-        myTextField3.autocorrectionType = UITextAutocorrectionType.no
-        myTextField3.keyboardType = UIKeyboardType.default
-        myTextField3.returnKeyType = UIReturnKeyType.done
-        myTextField3.clearButtonMode = UITextFieldViewMode.whileEditing;
-        myTextField3.contentVerticalAlignment = UIControlContentVerticalAlignment.center
-        myTextField3.delegate = self
-        self.textfield3 = myTextField3
-
-      //  myView.addSubview(myTextField3)
-        
-        
-        let mySlider = UISlider(frame: CGRect(x: 25, y: mySmallerLabel3.frame.maxY + 10, width: screenSize.width - 50, height: screenSize.height * 0.05))
-        mySlider.minimumValue = 0
-        mySlider.maximumValue = 5
-        mySlider.isContinuous = true
-        mySlider.tintColor = UIColor.green
-        self.slider = mySlider
-        myView.addSubview(mySlider)
 
         
         
-        let myButton = UIButton(frame: CGRect(x: screenSize.width / 4, y: myTextField3.frame.maxY + 40, width: screenSize.width / 4, height: screenSize.height * 0.05))
+        
+
+        
+        
+        let myButton = UIButton(frame: CGRect(x: screenSize.width / 4, y: myTextField2.frame.maxY + 40, width: screenSize.width / 4, height: screenSize.height * 0.05))
         myButton.setTitle("Cancel", for: .normal)
         myButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
         myButton.setTitleColor(UIColor.blue, for: .normal)
-
+        
         myView.addSubview(myButton)
         
         
-        let myButton2 = UIButton(frame: CGRect(x: (screenSize.width / 4) * 2, y: myTextField3.frame.maxY + 40, width: screenSize.width / 4, height: screenSize.height * 0.05))
+        let myButton2 = UIButton(frame: CGRect(x: (screenSize.width / 4) * 2, y: myTextField2.frame.maxY + 40, width: screenSize.width / 4, height: screenSize.height * 0.05))
         myButton2.setTitle("Save", for: .normal)
         myButton2.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         myButton2.setTitleColor(UIColor.blue, for: .normal)
-
+        
         myView.addSubview(myButton2)
         
         
@@ -150,11 +118,10 @@ class AddReviewViewController: UIViewController {
     @objc func buttonAction(sender: UIButton!) {
         print(self.textfield?.text)
         var name = self.textfield?.text!
-        var phone = self.textfield2?.text!
-        var stars = self.slider?.value
+        var about = self.textfield2?.text!
         let defaults = UserDefaults.standard
         let token = defaults.string(forKey: "MyKey")
-        let url = URL(string: "http://www.prettygoodsports.com/write/peerreview.php?name=\(name!)&phone=\(phone!)&myphone=\(token ?? "0")&stars=\(stars!)")
+        let url = URL(string: "http://www.prettygoodsports.com/write/peerreviewProfile.php?name=\(name!)&about=\(about!)&phone=\(token ?? "0")")
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
@@ -163,19 +130,19 @@ class AddReviewViewController: UIViewController {
         task.resume()
         
         
-     
         
-        performSegue(withIdentifier: "AddReviewtoMyReview", sender: nil)
+        
+        performSegue(withIdentifier: "editProfileToProfile", sender: nil)
     }
     
     @objc func cancelAction(sender: UIButton!) {
-        performSegue(withIdentifier: "AddReviewtoMyReview", sender: nil)
+        performSegue(withIdentifier: "editProfileToProfile", sender: nil)
     }
     
     
 }
 
-extension AddReviewViewController: UITextFieldDelegate {
+extension EditProfileViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         // return NO to disallow editing.

@@ -82,6 +82,24 @@
             </objects>
             <point key="canvasLocation" x="2510" y="692"/>
         </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="6EG-DS-mjk">
+            <objects>
+                <viewController id="7QY-hS-f6M" customClass="EditProfileViewController" customModule="Peer_Review" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E2n-f0-2Q2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7fH-lf-HQ1"/>
+                    </view>
+                    <connections>
+                        <segue destination="swV-oZ-yA1" kind="show" identifier="editProfileToProfile" id="odH-nw-dEz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dDr-nf-KmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="912" y="-880"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="qDa-OY-8GH">
             <objects>
@@ -95,6 +113,7 @@
                     <connections>
                         <segue destination="AkU-4d-ZbS" kind="show" identifier="profileToMyReviews" id="H5l-dh-901"/>
                         <segue destination="6ys-kG-wI2" kind="show" identifier="profileToReviewsOfMe" id="SPJ-ze-Fws"/>
+                        <segue destination="7QY-hS-f6M" kind="show" identifier="profileToEditProfile" id="Y3E-OV-afM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBT-yq-7mL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -103,7 +122,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5b3-tc-DtT"/>
-        <segue reference="cq0-Qe-7Kz"/>
+        <segue reference="odH-nw-dEz"/>
+        <segue reference="H5l-dh-901"/>
     </inferredMetricsTieBreakers>
 </document>

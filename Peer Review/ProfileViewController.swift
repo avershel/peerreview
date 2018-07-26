@@ -18,7 +18,14 @@ class ProfileViewController: UIViewController {
         
         let myView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
 //        myView.backgroundColor = UIColor.lightGray
+        let image = UIImage(named: "settings-512.png") as UIImage?
+
+        let settingsbutton = UIButton(frame: CGRect(x:  screenSize.width - 30, y: screenSize.height * 0.05, width: 25, height: 25))
+        settingsbutton.setImage(image, for: .normal)
+        settingsbutton.setTitleColor(UIColor.blue, for: .normal)
+        settingsbutton.addTarget( self, action: #selector(toEditProfile), for: .touchUpInside)
         
+        myView.addSubview(settingsbutton)
         
         let myImageView = UIImageView(frame: CGRect(x: 15, y: screenSize.height * 0.1, width: screenSize.width * 0.25 - 15, height: screenSize.height * 0.1))
         myImageView.image = UIImage(named: "noicon.png")
@@ -138,6 +145,9 @@ class ProfileViewController: UIViewController {
     
     @objc func toReviewsOfMe(_ sender: UIButton){
         performSegue(withIdentifier: "profileToReviewsOfMe", sender: nil)
+    }
+    @objc func toEditProfile(_ sender: UIButton){
+        performSegue(withIdentifier: "profileToEditProfile", sender: nil)
     }
 
     override func didReceiveMemoryWarning() {
