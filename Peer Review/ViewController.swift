@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var textfield: UITextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,7 @@ class ViewController: UIViewController {
         myTextField.clearButtonMode = UITextFieldViewMode.whileEditing;
         myTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
         myTextField.delegate = self
+        self.textfield = myTextField
         myView.addSubview(myTextField)
 
         
@@ -72,6 +74,9 @@ class ViewController: UIViewController {
     }
 
     @objc func buttonAction(sender: UIButton!) {
+        let defaults = UserDefaults.standard
+        defaults.set(self.textfield?.text!, forKey: "MyKey")
+        
         performSegue(withIdentifier: "phoneToProfile", sender: nil)
     }
 

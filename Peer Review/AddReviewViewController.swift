@@ -152,8 +152,9 @@ class AddReviewViewController: UIViewController {
         var name = self.textfield?.text!
         var phone = self.textfield2?.text!
         var stars = self.slider?.value
-
-        let url = URL(string: "http://www.prettygoodsports.com/write/peerreview.php?name=\(name!)&phone=\(phone!)&myphone=2404058682&stars=\(stars!)")
+        let defaults = UserDefaults.standard
+        let token = defaults.string(forKey: "MyKey")
+        let url = URL(string: "http://www.prettygoodsports.com/write/peerreview.php?name=\(name!)&phone=\(phone!)&myphone=\(token ?? "")&stars=\(stars!)")
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
