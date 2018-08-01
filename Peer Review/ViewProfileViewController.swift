@@ -231,6 +231,8 @@ class ViewProfileViewController: UIViewController {
                 review.revieweeName = fullNameArr3[3].components(separatedBy:"\":\"")[1]
                 review.comments = fullNameArr3[4].components(separatedBy:"\":\"")[1]
                 review.stars = fullNameArr3[5].components(separatedBy:"\":\"")[1]
+                review.date = fullNameArr3[6].components(separatedBy:"\":\"")[1]
+
                 counter = counter + 1
                 accumulater = accumulater + Double(review.stars)!
                 
@@ -289,6 +291,8 @@ class ViewProfileViewController: UIViewController {
                 review.revieweeName = fullNameArr3[3].components(separatedBy:"\":\"")[1]
                 review.comments = fullNameArr3[4].components(separatedBy:"\":\"")[1]
                 review.stars = fullNameArr3[5].components(separatedBy:"\":\"")[1]
+                review.date = fullNameArr3[6].components(separatedBy:"\":\"")[1]
+
                 counter = counter + 1
                 accumulater = accumulater + Double(review.stars)!
                 

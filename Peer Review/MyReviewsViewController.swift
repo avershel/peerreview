@@ -71,7 +71,11 @@ class MyReviewsViewController: UIViewController, UITableViewDelegate, UITableVie
                 review.revieweeName = fullNameArr3[3].components(separatedBy:"\":\"")[1]
                 review.comments = fullNameArr3[4].components(separatedBy:"\":\"")[1]
                 review.stars = fullNameArr3[5].components(separatedBy:"\":\"")[1]
- 
+                review.date = fullNameArr3[6].components(separatedBy:"\":\"")[1].components(separatedBy:" ")[0]
+                var dateholder = review.date.components(separatedBy:"-")
+                let last4 = dateholder[0].substring(from:dateholder[0].index(dateholder[0].endIndex, offsetBy: -2))
+                
+                review.date = "\(dateholder[1])/\(dateholder[2])/\(last4)"
                 reviews.append(review)
             }
 
@@ -116,16 +120,21 @@ tableView.reloadData()
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
         let screenSize: CGRect = UIScreen.main.bounds
-        if(reviews[indexPath.row].reviewerPhone != ""){
-            var label = UILabel(frame: CGRect(x: 5, y: 5, width: screenSize.width / 4, height: 15))
+        
+        var datelabel = UILabel(frame: CGRect(x: 10, y: 25, width: screenSize.width / 3, height: 15))
+        datelabel.text = "\(reviews[indexPath.row].date)"
+        cell.addSubview(datelabel)
+        
+        if(reviews[indexPath.row].revieweeName != ""){
+            var label = UILabel(frame: CGRect(x: datelabel.frame.maxX  , y: 12, width: screenSize.width / 3, height: 15))
             label.text = "\(reviews[indexPath.row].revieweeName)"
             cell.addSubview(label)
             
-            var label2 = UILabel(frame: CGRect(x: 10, y: 25, width: screenSize.width / 2, height: 15))
+            var label2 = UILabel(frame: CGRect(x: datelabel.frame.maxX , y: 32, width: screenSize.width / 3, height: 15))
             label2.text = "\(reviews[indexPath.row].revieweePhone)"
             cell.addSubview(label2)
         }else{
-            var label = UILabel(frame: CGRect(x: 5, y: 5, width: screenSize.width / 2, height: 15))
+            var label = UILabel(frame: CGRect(x: datelabel.frame.maxX , y: 25, width: screenSize.width / 3, height: 15))
             label.text = "\(reviews[indexPath.row].revieweePhone)"
             cell.addSubview(label)
         }
@@ -161,4 +170,5 @@ class Review {
     var revieweeName: String = ""
     var comments: String = ""
     var stars: String = ""
+    var date: String = ""
 }
