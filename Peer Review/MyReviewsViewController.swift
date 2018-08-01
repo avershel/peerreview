@@ -9,7 +9,8 @@
 import UIKit
 
 class MyReviewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
-
+    var reviews = [Review]()
+    var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +28,65 @@ class MyReviewsViewController: UIViewController, UITableViewDelegate, UITableVie
         self.view.addSubview(navBar)
         
         
-        let myView = UITableView(frame: CGRect(x: 0, y: navBar.frame.maxY, width: screenSize.width, height: screenSize.height - navBar.frame.height))
-    
+        tableView = UITableView(frame: CGRect(x: 0, y: navBar.frame.maxY, width: screenSize.width, height: screenSize.height - navBar.frame.height))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
+        tableView.dataSource = self
+        tableView.delegate = self
         
-        self.view.addSubview(myView)
+        self.view.addSubview(tableView)
+        
+        
+        let defaults = UserDefaults.standard
+        let token = defaults.string(forKey: "MyKey")
+
+        let myURLString = "http://prettygoodsports.com/write/PeerReviewByPhone.php?phone=\(token! ?? "0")"
+        guard let myURL = URL(string: myURLString) else {
+            print("Error: \(myURLString) doesn't seem to be a valid URL")
+            return
+        }
+        do {
+            let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
+            print("HTML : \(myHTMLString)")
+            
+            var fullNameArr = myHTMLString.components(separatedBy:"###")
+            
+            for i in 0..<fullNameArr.count - 1 {
+                print(i)
+                var review = Review()
+
+                var id = ""
+                var reviewerPhone = ""
+                var revieweePhone = ""
+                var revieweeName = ""
+                var comments = ""
+                var stars = ""
+                var holder  = fullNameArr[i].replacingOccurrences(of: "{\"", with: "", options: .literal, range: nil)
+                holder  = holder.replacingOccurrences(of: "\"}", with: "", options: .literal, range: nil)
+                holder = holder.replacingOccurrences(of: "\",\"", with: "###", options: .literal, range: nil)
+                var fullNameArr3 = holder.components(separatedBy:"###")
+                print(fullNameArr3[0].components(separatedBy:"\":\"").count)
+             //   review.id = fullNameArr3[0].components(separatedBy:"\":\"")[1]
+                review.reviewerPhone = fullNameArr3[1].components(separatedBy:"\":\"")[1]
+                review.revieweePhone = fullNameArr3[2].components(separatedBy:"\":\"")[1]
+                review.revieweeName = fullNameArr3[3].components(separatedBy:"\":\"")[1]
+                review.comments = fullNameArr3[4].components(separatedBy:"\":\"")[1]
+                review.stars = fullNameArr3[5].components(separatedBy:"\":\"")[1]
+ 
+                reviews.append(review)
+            }
+
+                
+
+                
+                
+            
+        } catch let error {
+            print("Error: \(error)")
+        }
+        
+        
+tableView.reloadData()
+        
         
         
     }
@@ -53,17 +109,46 @@ class MyReviewsViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0 // your number of cell here
+        return reviews.count // your number of cell here
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
+        let screenSize: CGRect = UIScreen.main.bounds
+        if(reviews[indexPath.row].reviewerPhone != ""){
+            var label = UILabel(frame: CGRect(x: 5, y: 5, width: screenSize.width / 4, height: 15))
+            label.text = "\(reviews[indexPath.row].revieweeName)"
+            cell.addSubview(label)
+            
+            var label2 = UILabel(frame: CGRect(x: 10, y: 25, width: screenSize.width / 2, height: 15))
+            label2.text = "\(reviews[indexPath.row].revieweePhone)"
+            cell.addSubview(label2)
+        }else{
+            var label = UILabel(frame: CGRect(x: 5, y: 5, width: screenSize.width / 2, height: 15))
+            label.text = "\(reviews[indexPath.row].revieweePhone)"
+            cell.addSubview(label)
+        }
         
-    }
+        var label = UILabel(frame: CGRect(x: screenSize.width - (screenSize.width / 4), y: 25, width: screenSize.width / 4, height: 15))
+        label.text = "\(reviews[indexPath.row].stars)"
+        cell.addSubview(label)
 
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 65;//Choose your custom row height
+    }
     
     
 }
 
-
+class Review {
+    var id: String = ""
+    var reviewerPhone: String = ""
+    var revieweePhone: String = ""
+    var revieweeName: String = ""
+    var comments: String = ""
+    var stars: String = ""
+}
