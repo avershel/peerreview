@@ -116,9 +116,9 @@ class ProfileViewController: UIViewController {
         let myFirstButton = UIButton(frame: CGRect(x: myFirstBox.frame.maxX - 30, y: myFirstBox.frame.maxY - 30, width: 25, height: 25))
         myFirstButton.setTitle(">", for: .normal)
         myFirstButton.setTitleColor(UIColor.blue, for: .normal)
-        myFirstButton.addTarget( self, action: #selector(toMyReviews), for: .touchUpInside)
+        myFirstButton.addTarget( self, action: #selector(toReviewsOfMe), for: .touchUpInside)
 
-        myView.addSubview(myFirstButton)
+        //myView.addSubview(myFirstButton)
 
 
         
@@ -168,7 +168,8 @@ class ProfileViewController: UIViewController {
         
         
         self.view.addSubview(myView)
-        
+        self.view.addSubview(myFirstButton)
+
         
     }
     @objc func toMyReviews(_ sender: UIButton){
