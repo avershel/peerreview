@@ -41,6 +41,7 @@
                     <connections>
                         <segue destination="swV-oZ-yA1" kind="show" identifier="myReviewsToProfile" id="5b3-tc-DtT"/>
                         <segue destination="U9I-JI-M51" kind="show" identifier="addReview" id="bcF-cO-FZH"/>
+                        <segue destination="DNG-WH-QKf" kind="show" identifier="myReviewsToViewProfile" id="MQe-MJ-Hva"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Opf-Ct-Gdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -59,6 +60,7 @@
                     </view>
                     <connections>
                         <segue destination="swV-oZ-yA1" kind="show" identifier="reviewsOfMeToProfile" id="OH9-ci-6Kl"/>
+                        <segue destination="3hw-5r-trr" kind="show" identifier="reviewsOfMeToViewProfile" id="0rs-Ai-23I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="27a-b0-GCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,6 +84,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rwg-HN-mUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2510" y="692"/>
+        </scene>
+        <!--Second View Profile View Controller-->
+        <scene sceneID="Z7D-sR-VAW">
+            <objects>
+                <viewController id="3hw-5r-trr" customClass="SecondViewProfileViewController" customModule="Peer_Review" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lfg-8D-1Li">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0Ik-29-SBu"/>
+                    </view>
+                    <connections>
+                        <segue destination="6ys-kG-wI2" kind="show" identifier="viewProfileToReviewsOfMe" id="T61-aM-7KV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="55Y-cr-AwE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-829" y="-460"/>
+        </scene>
+        <!--View Profile View Controller-->
+        <scene sceneID="84g-yS-LFf">
+            <objects>
+                <viewController id="DNG-WH-QKf" customClass="ViewProfileViewController" customModule="Peer_Review" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sQg-12-Xwf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mCL-Is-0tN"/>
+                    </view>
+                    <connections>
+                        <segue destination="AkU-4d-ZbS" kind="show" identifier="viewProfileToMyReviews" id="Ng3-Gp-MWW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ES-2B-7iH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-201" y="-647"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="6EG-DS-mjk">
@@ -124,8 +162,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="odH-nw-dEz"/>
+        <segue reference="0rs-Ai-23I"/>
+        <segue reference="OH9-ci-6Kl"/>
         <segue reference="2EZ-ij-nR1"/>
-        <segue reference="H5l-dh-901"/>
+        <segue reference="T61-aM-7KV"/>
+        <segue reference="Ng3-Gp-MWW"/>
     </inferredMetricsTieBreakers>
 </document>

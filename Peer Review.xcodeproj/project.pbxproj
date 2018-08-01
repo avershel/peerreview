@@ -23,6 +23,8 @@
 		D96F22FF2108B60F002CC350 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F22FE2108B60F002CC350 /* AddReviewViewController.swift */; };
 		D96F2303210A10C9002CC350 /* settings-512.png in Resources */ = {isa = PBXBuildFile; fileRef = D96F2302210A10C9002CC350 /* settings-512.png */; };
 		D96F2305210A11B0002CC350 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F2304210A11B0002CC350 /* EditProfileViewController.swift */; };
+		D96F23072111F91F002CC350 /* ViewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F23062111F91F002CC350 /* ViewProfileViewController.swift */; };
+		D96F23092111FE00002CC350 /* SecondViewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F23082111FE00002CC350 /* SecondViewProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		D96F22FE2108B60F002CC350 /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
 		D96F2302210A10C9002CC350 /* settings-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings-512.png"; path = "../../../Desktop/settings-512.png"; sourceTree = "<group>"; };
 		D96F2304210A11B0002CC350 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		D96F23062111F91F002CC350 /* ViewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProfileViewController.swift; sourceTree = "<group>"; };
+		D96F23082111FE00002CC350 /* SecondViewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				D90DDACB20B23FF10085DBFC /* ReviewsOfMeViewController.swift */,
 				D96F22FE2108B60F002CC350 /* AddReviewViewController.swift */,
 				D96F2304210A11B0002CC350 /* EditProfileViewController.swift */,
+				D96F23062111F91F002CC350 /* ViewProfileViewController.swift */,
+				D96F23082111FE00002CC350 /* SecondViewProfileViewController.swift */,
 			);
 			path = "Peer Review";
 			sourceTree = "<group>";
@@ -287,11 +293,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96F23092111FE00002CC350 /* SecondViewProfileViewController.swift in Sources */,
 				D96F22FF2108B60F002CC350 /* AddReviewViewController.swift in Sources */,
 				D90DDABE20B226CA0085DBFC /* ProfileViewController.swift in Sources */,
 				D90DDA9220B21FFC0085DBFC /* ViewController.swift in Sources */,
 				D90DDACA20B23BE70085DBFC /* MyReviewsViewController.swift in Sources */,
 				D90DDA9020B21FFC0085DBFC /* AppDelegate.swift in Sources */,
+				D96F23072111F91F002CC350 /* ViewProfileViewController.swift in Sources */,
 				D90DDACC20B23FF10085DBFC /* ReviewsOfMeViewController.swift in Sources */,
 				D96F2305210A11B0002CC350 /* EditProfileViewController.swift in Sources */,
 			);

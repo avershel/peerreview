@@ -140,8 +140,18 @@ tableView.reloadData()
     {
         return 65;//Choose your custom row height
     }
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Num: \(indexPath.row)")
+        let defaults = UserDefaults.standard
+        defaults.set(reviews[indexPath.row].revieweePhone, forKey: "MyKey2")
+        performSegue(withIdentifier: "myReviewsToViewProfile", sender: nil)
+
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()
+    }
 }
 
 class Review {
