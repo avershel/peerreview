@@ -25,6 +25,16 @@
 		D96F2305210A11B0002CC350 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F2304210A11B0002CC350 /* EditProfileViewController.swift */; };
 		D96F23072111F91F002CC350 /* ViewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F23062111F91F002CC350 /* ViewProfileViewController.swift */; };
 		D96F23092111FE00002CC350 /* SecondViewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F23082111FE00002CC350 /* SecondViewProfileViewController.swift */; };
+		D96F231421120F07002CC350 /* 45-5stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D96F230A21120F06002CC350 /* 45-5stars.png */; };
+		D96F231521120F07002CC350 /* 4-5stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D96F230B21120F06002CC350 /* 4-5stars.png */; };
+		D96F231621120F07002CC350 /* 1-5stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D96F230C21120F06002CC350 /* 1-5stars.png */; };
+		D96F231721120F07002CC350 /* 3o5stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D96F230D21120F07002CC350 /* 3o5stars.png */; };
+		D96F231821120F07002CC350 /* 15-5stars.svg in Resources */ = {isa = PBXBuildFile; fileRef = D96F230E21120F07002CC350 /* 15-5stars.svg */; };
+		D96F231921120F07002CC350 /* 2-5stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D96F230F21120F07002CC350 /* 2-5stars.png */; };
+		D96F231A21120F07002CC350 /* 5-5stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D96F231021120F07002CC350 /* 5-5stars.png */; };
+		D96F231B21120F07002CC350 /* 05-5stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D96F231121120F07002CC350 /* 05-5stars.png */; };
+		D96F231C21120F07002CC350 /* 0-5stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D96F231221120F07002CC350 /* 0-5stars.png */; };
+		D96F231D21120F07002CC350 /* 25-5stars.png in Resources */ = {isa = PBXBuildFile; fileRef = D96F231321120F07002CC350 /* 25-5stars.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +79,16 @@
 		D96F2304210A11B0002CC350 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		D96F23062111F91F002CC350 /* ViewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProfileViewController.swift; sourceTree = "<group>"; };
 		D96F23082111FE00002CC350 /* SecondViewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewProfileViewController.swift; sourceTree = "<group>"; };
+		D96F230A21120F06002CC350 /* 45-5stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "45-5stars.png"; path = "../../../Desktop/45-5stars.png"; sourceTree = "<group>"; };
+		D96F230B21120F06002CC350 /* 4-5stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "4-5stars.png"; path = "../../../Desktop/4-5stars.png"; sourceTree = "<group>"; };
+		D96F230C21120F06002CC350 /* 1-5stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1-5stars.png"; path = "../../../Desktop/1-5stars.png"; sourceTree = "<group>"; };
+		D96F230D21120F07002CC350 /* 3o5stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3o5stars.png; path = ../../../Desktop/3o5stars.png; sourceTree = "<group>"; };
+		D96F230E21120F07002CC350 /* 15-5stars.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "15-5stars.svg"; path = "../../../Desktop/15-5stars.svg"; sourceTree = "<group>"; };
+		D96F230F21120F07002CC350 /* 2-5stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "2-5stars.png"; path = "../../../Desktop/2-5stars.png"; sourceTree = "<group>"; };
+		D96F231021120F07002CC350 /* 5-5stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "5-5stars.png"; path = "../../../Desktop/5-5stars.png"; sourceTree = "<group>"; };
+		D96F231121120F07002CC350 /* 05-5stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "05-5stars.png"; path = "../../../Desktop/05-5stars.png"; sourceTree = "<group>"; };
+		D96F231221120F07002CC350 /* 0-5stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "0-5stars.png"; path = "../../../Desktop/0-5stars.png"; sourceTree = "<group>"; };
+		D96F231321120F07002CC350 /* 25-5stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "25-5stars.png"; path = "../../../Desktop/25-5stars.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +139,16 @@
 		D90DDA8E20B21FFC0085DBFC /* Peer Review */ = {
 			isa = PBXGroup;
 			children = (
+				D96F231221120F07002CC350 /* 0-5stars.png */,
+				D96F230C21120F06002CC350 /* 1-5stars.png */,
+				D96F230F21120F07002CC350 /* 2-5stars.png */,
+				D96F230D21120F07002CC350 /* 3o5stars.png */,
+				D96F230B21120F06002CC350 /* 4-5stars.png */,
+				D96F231021120F07002CC350 /* 5-5stars.png */,
+				D96F231121120F07002CC350 /* 05-5stars.png */,
+				D96F230E21120F07002CC350 /* 15-5stars.svg */,
+				D96F231321120F07002CC350 /* 25-5stars.png */,
+				D96F230A21120F06002CC350 /* 45-5stars.png */,
 				D96F2302210A10C9002CC350 /* settings-512.png */,
 				D90DDAC720B2386F0085DBFC /* noicon.png */,
 				D90DDAC520B2326C0085DBFC /* 3-5stars.png */,
@@ -262,13 +292,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96F231821120F07002CC350 /* 15-5stars.svg in Resources */,
 				D90DDA9A20B21FFF0085DBFC /* LaunchScreen.storyboard in Resources */,
 				D90DDAC820B2386F0085DBFC /* noicon.png in Resources */,
+				D96F231921120F07002CC350 /* 2-5stars.png in Resources */,
 				D90DDAC620B2326C0085DBFC /* 3-5stars.png in Resources */,
+				D96F231A21120F07002CC350 /* 5-5stars.png in Resources */,
 				D90DDAC220B22A910085DBFC /* appstore.png in Resources */,
 				D90DDA9720B21FFF0085DBFC /* Assets.xcassets in Resources */,
+				D96F231D21120F07002CC350 /* 25-5stars.png in Resources */,
+				D96F231721120F07002CC350 /* 3o5stars.png in Resources */,
 				D96F2303210A10C9002CC350 /* settings-512.png in Resources */,
+				D96F231521120F07002CC350 /* 4-5stars.png in Resources */,
+				D96F231B21120F07002CC350 /* 05-5stars.png in Resources */,
+				D96F231421120F07002CC350 /* 45-5stars.png in Resources */,
 				D90DDA9520B21FFC0085DBFC /* Main.storyboard in Resources */,
+				D96F231C21120F07002CC350 /* 0-5stars.png in Resources */,
+				D96F231621120F07002CC350 /* 1-5stars.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

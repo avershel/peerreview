@@ -165,7 +165,7 @@ class AddReviewViewController: UIViewController {
         
      
         
-        performSegue(withIdentifier: "AddReviewtoMyReview", sender: nil)
+        performSegue(withIdentifier: "addReviewToProfile", sender: nil)
     }
     
     @objc func cancelAction(sender: UIButton!) {

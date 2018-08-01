@@ -11,59 +11,80 @@ import UIKit
 class ViewController: UIViewController {
     var textfield: UITextField?
 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let defaults = UserDefaults.standard
+        let token = defaults.string(forKey: "MyKey")
+        
+        if(token != ""){
+            performSegue(withIdentifier: "phoneToProfile", sender: nil)
+            
+        }
+        
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let screenSize: CGRect = UIScreen.main.bounds
-        
-        
-        let myView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
-        myView.backgroundColor = UIColor.lightGray
 
-        let myLabel = UILabel(frame: CGRect(x: 0, y: screenSize.height * 0.1, width: screenSize.width, height: screenSize.height * 0.1))
-        myLabel.text = "Enter your Phone Number.  Don't worry, we will never distribute it or contact you."
-        myLabel.lineBreakMode = .byWordWrapping
-        myLabel.numberOfLines = 0
-        myLabel.textAlignment = .center
-        myLabel.font = myLabel.font.withSize(30)
-//        myLabel.adjustsFontSizeToFitWidth = true
-//        myLabel.minimumScaleFactor = 0.2
-        myView.addSubview(myLabel)
-        
-        
-        let mySmallerLabel = UILabel(frame: CGRect(x: 20, y: myLabel.frame.maxY + 10, width: screenSize.width - 40, height: screenSize.height * 0.1))
-        mySmallerLabel.text = "(Don't worry, we will never distribute it or contact you)"
-        mySmallerLabel.lineBreakMode = .byWordWrapping
-        mySmallerLabel.numberOfLines = 0
-        mySmallerLabel.textAlignment = .center
-        mySmallerLabel.font = mySmallerLabel.font.withSize(15)
-
-        //        myLabel.adjustsFontSizeToFitWidth = true
-        //        myLabel.minimumScaleFactor = 0.2
-        myView.addSubview(mySmallerLabel)
-        
-        
-        let myTextField = UITextField(frame: CGRect(x: 25, y: mySmallerLabel.frame.maxY + 10, width: screenSize.width - 50, height: screenSize.height * 0.05))
-        myTextField.placeholder = "(123)-456-7890"
-        myTextField.font = UIFont.systemFont(ofSize: 15)
-        myTextField.borderStyle = UITextBorderStyle.roundedRect
-        myTextField.autocorrectionType = UITextAutocorrectionType.no
-        myTextField.keyboardType = UIKeyboardType.default
-        myTextField.returnKeyType = UIReturnKeyType.done
-        myTextField.clearButtonMode = UITextFieldViewMode.whileEditing;
-        myTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
-        myTextField.delegate = self
-        self.textfield = myTextField
-        myView.addSubview(myTextField)
-
-        
-        let myButton = UIButton(frame: CGRect(x: 25, y: myTextField.frame.maxY + 40, width: screenSize.width - 50, height: screenSize.height * 0.05))
-        myButton.setTitle("Next", for: .normal)
-        myButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        myView.addSubview(myButton)
-        
-
-        self.view.addSubview(myView)
+        let defaults = UserDefaults.standard
+        let token = defaults.string(forKey: "MyKey")
+        if(token != ""){
+            performSegue(withIdentifier: "phoneToProfile", sender: nil)
+            
+        }else{
+            let screenSize: CGRect = UIScreen.main.bounds
+            
+            
+            let myView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+            myView.backgroundColor = UIColor.lightGray
+            
+            let myLabel = UILabel(frame: CGRect(x: 0, y: screenSize.height * 0.1, width: screenSize.width, height: screenSize.height * 0.1))
+            myLabel.text = "Enter your Phone Number.  Don't worry, we will never distribute it or contact you."
+            myLabel.lineBreakMode = .byWordWrapping
+            myLabel.numberOfLines = 0
+            myLabel.textAlignment = .center
+            myLabel.font = myLabel.font.withSize(30)
+            //        myLabel.adjustsFontSizeToFitWidth = true
+            //        myLabel.minimumScaleFactor = 0.2
+            myView.addSubview(myLabel)
+            
+            
+            let mySmallerLabel = UILabel(frame: CGRect(x: 20, y: myLabel.frame.maxY + 10, width: screenSize.width - 40, height: screenSize.height * 0.1))
+            mySmallerLabel.text = "(Don't worry, we will never distribute it or contact you)"
+            mySmallerLabel.lineBreakMode = .byWordWrapping
+            mySmallerLabel.numberOfLines = 0
+            mySmallerLabel.textAlignment = .center
+            mySmallerLabel.font = mySmallerLabel.font.withSize(15)
+            
+            //        myLabel.adjustsFontSizeToFitWidth = true
+            //        myLabel.minimumScaleFactor = 0.2
+            myView.addSubview(mySmallerLabel)
+            
+            
+            let myTextField = UITextField(frame: CGRect(x: 25, y: mySmallerLabel.frame.maxY + 10, width: screenSize.width - 50, height: screenSize.height * 0.05))
+            myTextField.placeholder = "(123)-456-7890"
+            myTextField.font = UIFont.systemFont(ofSize: 15)
+            myTextField.borderStyle = UITextBorderStyle.roundedRect
+            myTextField.autocorrectionType = UITextAutocorrectionType.no
+            myTextField.keyboardType = UIKeyboardType.default
+            myTextField.returnKeyType = UIReturnKeyType.done
+            myTextField.clearButtonMode = UITextFieldViewMode.whileEditing;
+            myTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+            myTextField.delegate = self
+            self.textfield = myTextField
+            myView.addSubview(myTextField)
+            
+            
+            let myButton = UIButton(frame: CGRect(x: 25, y: myTextField.frame.maxY + 40, width: screenSize.width - 50, height: screenSize.height * 0.05))
+            myButton.setTitle("Next", for: .normal)
+            myButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+            myView.addSubview(myButton)
+            
+            
+            self.view.addSubview(myView)
+        }
+       
         
 
     }

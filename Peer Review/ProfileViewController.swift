@@ -97,7 +97,41 @@ class ProfileViewController: UIViewController {
         
         
         let myStarImage = UIImageView(frame: CGRect(x: myFirstBox.frame.minX + 5, y: myFirstBox.frame.minY + 5, width: myFirstBox.frame.width - 10, height: myFirstBox.frame.height * 0.25))
-        myStarImage.image = UIImage(named: "3-5stars.png")
+        var star1holder = Double(round(100*getAvgReviewOfMeScore())/100)
+        if(star1holder < 0.5){
+            myStarImage.image = UIImage(named: "0-5stars.png")
+
+        }else if (star1holder >= 0.5 && star1holder < 1.0){
+            myStarImage.image = UIImage(named: "05-5stars.png")
+
+        }else if (star1holder >= 1.0 && star1holder < 1.5){
+            myStarImage.image = UIImage(named: "1-5stars.png")
+
+        }else if (star1holder >= 1.5 && star1holder < 2.0){
+            myStarImage.image = UIImage(named: "2-5stars.png")
+
+        }else if (star1holder >= 2.0 && star1holder < 2.5){
+            myStarImage.image = UIImage(named: "2-5stars.png")
+
+        }else if (star1holder >= 2.5 && star1holder < 3.0){
+            myStarImage.image = UIImage(named: "25-5stars.png")
+
+        }else if (star1holder >= 3.0 && star1holder < 3.5){
+            myStarImage.image = UIImage(named: "3o5stars.png")
+
+        }else if (star1holder >= 3.5 && star1holder < 4.0){
+            myStarImage.image = UIImage(named: "3-5stars.png")
+
+        }else if (star1holder >= 4.0 && star1holder < 4.5){
+            myStarImage.image = UIImage(named: "4-5stars.png")
+
+        }else if (star1holder >= 4.5 && star1holder < 5.0){
+            myStarImage.image = UIImage(named: "45-5stars.png")
+
+        }else{
+            myStarImage.image = UIImage(named: "5-5stars.png")
+
+        }
         myView.addSubview(myStarImage)
         
         
@@ -142,7 +176,41 @@ class ProfileViewController: UIViewController {
         
         
         let secondStarImage = UIImageView(frame: CGRect(x: mySecondBox.frame.minX + 5, y: mySecondBox.frame.minY + 5, width: mySecondBox.frame.width - 10, height: mySecondBox.frame.height * 0.25))
-        secondStarImage.image = UIImage(named: "3-5stars.png")
+         star1holder = Double(round(100*getAvgMyReviewScore())/100)
+        if(star1holder < 0.5){
+            secondStarImage.image = UIImage(named: "0-5stars.png")
+            
+        }else if (star1holder >= 0.5 && star1holder < 1.0){
+            secondStarImage.image = UIImage(named: "05-5stars.png")
+            
+        }else if (star1holder >= 1.0 && star1holder < 1.5){
+            secondStarImage.image = UIImage(named: "1-5stars.png")
+            
+        }else if (star1holder >= 1.5 && star1holder < 2.0){
+            secondStarImage.image = UIImage(named: "2-5stars.png")
+            
+        }else if (star1holder >= 2.0 && star1holder < 2.5){
+            secondStarImage.image = UIImage(named: "2-5stars.png")
+            
+        }else if (star1holder >= 2.5 && star1holder < 3.0){
+            secondStarImage.image = UIImage(named: "25-5stars.png")
+            
+        }else if (star1holder >= 3.0 && star1holder < 3.5){
+            secondStarImage.image = UIImage(named: "3o5stars.png")
+            
+        }else if (star1holder >= 3.5 && star1holder < 4.0){
+            secondStarImage.image = UIImage(named: "3-5stars.png")
+            
+        }else if (star1holder >= 4.0 && star1holder < 4.5){
+            secondStarImage.image = UIImage(named: "4-5stars.png")
+            
+        }else if (star1holder >= 4.5 && star1holder < 5.0){
+            secondStarImage.image = UIImage(named: "45-5stars.png")
+            
+        }else{
+            secondStarImage.image = UIImage(named: "5-5stars.png")
+            
+        }
         myView.addSubview(secondStarImage)
         
         

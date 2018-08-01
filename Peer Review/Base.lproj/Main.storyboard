@@ -79,6 +79,7 @@
                     </view>
                     <connections>
                         <segue destination="AkU-4d-ZbS" kind="show" identifier="AddReviewtoMyReview" id="cq0-Qe-7Kz"/>
+                        <segue destination="swV-oZ-yA1" kind="show" identifier="addReviewToProfile" id="Mvm-H2-AyK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rwg-HN-mUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -162,10 +163,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0rs-Ai-23I"/>
-        <segue reference="OH9-ci-6Kl"/>
+        <segue reference="Mvm-H2-AyK"/>
         <segue reference="2EZ-ij-nR1"/>
         <segue reference="T61-aM-7KV"/>
-        <segue reference="Ng3-Gp-MWW"/>
+        <segue reference="cq0-Qe-7Kz"/>
     </inferredMetricsTieBreakers>
 </document>
