@@ -104,7 +104,7 @@ class SecondViewProfileViewController: UIViewController {
         
         
         let starLabel = UILabel(frame: CGRect(x: myFirstBox.frame.minX + 5, y: starBox.frame.maxY + (myFirstBox.frame.height * 0.025), width: myFirstBox.frame.width - 10, height: myFirstBox.frame.height * 0.3))
-        starLabel.text = "3.5"
+        starLabel.text = "\(Double(round(100*getAvgMyReviewScore())/100))"
         starLabel.font = starLabel.font.withSize(25)
         starLabel.textAlignment = .center
         myView.addSubview(starLabel)
@@ -149,7 +149,7 @@ class SecondViewProfileViewController: UIViewController {
         
         
         let secondStarLabel = UILabel(frame: CGRect(x: mySecondBox.frame.minX + 5, y: secondStarBox.frame.maxY + (mySecondBox.frame.height * 0.025), width: mySecondBox.frame.width - 10, height: mySecondBox.frame.height * 0.3))
-        secondStarLabel.text = "3.5"
+        secondStarLabel.text = "\(Double(round(100*getAvgReviewOfMeScore())/100))"
         secondStarLabel.font = starLabel.font.withSize(25)
         secondStarLabel.textAlignment = .center
         myView.addSubview(secondStarLabel)
@@ -193,6 +193,120 @@ class SecondViewProfileViewController: UIViewController {
     @objc func buttonAction(sender: UIButton!) {
         print("Button tapped")
     }
+    func getAvgMyReviewScore() -> Double {
+        
+        let defaults = UserDefaults.standard
+        let token = defaults.string(forKey: "MyKey2")
+        var counter = 0
+        var accumulater = 0.0
+        let myURLString = "http://prettygoodsports.com/write/PeerReviewByPhone.php?phone=\(token! ?? "0")"
+        guard let myURL = URL(string: myURLString) else {
+            print("Error: \(myURLString) doesn't seem to be a valid URL")
+            return 0
+        }
+        do {
+            let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
+            print("HTML : \(myHTMLString)")
+            
+            var fullNameArr = myHTMLString.components(separatedBy:"###")
+            
+            for i in 0..<fullNameArr.count - 1 {
+                print(i)
+                var review = Review()
+                
+                var id = ""
+                var reviewerPhone = ""
+                var revieweePhone = ""
+                var revieweeName = ""
+                var comments = ""
+                var stars = ""
+                var holder  = fullNameArr[i].replacingOccurrences(of: "{\"", with: "", options: .literal, range: nil)
+                holder  = holder.replacingOccurrences(of: "\"}", with: "", options: .literal, range: nil)
+                holder = holder.replacingOccurrences(of: "\",\"", with: "###", options: .literal, range: nil)
+                var fullNameArr3 = holder.components(separatedBy:"###")
+                print(fullNameArr3[0].components(separatedBy:"\":\"").count)
+                //   review.id = fullNameArr3[0].components(separatedBy:"\":\"")[1]
+                review.reviewerPhone = fullNameArr3[1].components(separatedBy:"\":\"")[1]
+                review.revieweePhone = fullNameArr3[2].components(separatedBy:"\":\"")[1]
+                review.revieweeName = fullNameArr3[3].components(separatedBy:"\":\"")[1]
+                review.comments = fullNameArr3[4].components(separatedBy:"\":\"")[1]
+                review.stars = fullNameArr3[5].components(separatedBy:"\":\"")[1]
+                counter = counter + 1
+                accumulater = accumulater + Double(review.stars)!
+                
+            }
+            
+            
+            
+            
+            
+            
+        } catch let error {
+            print("Error: \(error)")
+        }
+        if(counter == 0){
+            return 0
+        }
+        return (accumulater / Double(counter))
+        
+    }
     
+    func getAvgReviewOfMeScore() -> Double {
+        
+        let defaults = UserDefaults.standard
+        let token = defaults.string(forKey: "MyKey2")
+        var counter = 0
+        var accumulater = 0.0
+        let myURLString = "http://prettygoodsports.com/write/PeerReviewOfPhone.php?phone=\(token! ?? "0")"
+        guard let myURL = URL(string: myURLString) else {
+            print("Error: \(myURLString) doesn't seem to be a valid URL")
+            return 0
+        }
+        do {
+            let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
+            print("HTML : \(myHTMLString)")
+            
+            var fullNameArr = myHTMLString.components(separatedBy:"###")
+            
+            for i in 0..<fullNameArr.count - 1 {
+                print(i)
+                var review = Review()
+                
+                var id = ""
+                var reviewerPhone = ""
+                var revieweePhone = ""
+                var revieweeName = ""
+                var comments = ""
+                var stars = ""
+                var holder  = fullNameArr[i].replacingOccurrences(of: "{\"", with: "", options: .literal, range: nil)
+                holder  = holder.replacingOccurrences(of: "\"}", with: "", options: .literal, range: nil)
+                holder = holder.replacingOccurrences(of: "\",\"", with: "###", options: .literal, range: nil)
+                var fullNameArr3 = holder.components(separatedBy:"###")
+                print(fullNameArr3[0].components(separatedBy:"\":\"").count)
+                //   review.id = fullNameArr3[0].components(separatedBy:"\":\"")[1]
+                review.reviewerPhone = fullNameArr3[1].components(separatedBy:"\":\"")[1]
+                review.revieweePhone = fullNameArr3[2].components(separatedBy:"\":\"")[1]
+                review.revieweeName = fullNameArr3[3].components(separatedBy:"\":\"")[1]
+                review.comments = fullNameArr3[4].components(separatedBy:"\":\"")[1]
+                review.stars = fullNameArr3[5].components(separatedBy:"\":\"")[1]
+                counter = counter + 1
+                accumulater = accumulater + Double(review.stars)!
+                
+            }
+            
+            
+            
+            
+            
+            
+        } catch let error {
+            print("Error: \(error)")
+        }
+        if(counter == 0){
+            return 0
+        }
+        return (accumulater / Double(counter))
+        
+    }
     
 }
